@@ -1,0 +1,57 @@
+{
+  "name": "just-eat-express",
+  "version": "1.0.0",
+  "description": "BE for just-eat project",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "preserve": "npm run build",
+    "serve": "cross-env NODE_ENV=production concurrently \"tsc --watch\" \"nodemon -q dist/index.js\"",
+    "prestart": "npm run build",
+    "start": "cross-env NODE_ENV=development concurrently \"tsc --watch\" \"nodemon -q dist/index.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whisher/just-eat-express.git"
+  },
+  "author": "whisher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/whisher/just-eat-express/issues"
+  },
+  "homepage": "https://github.com/whisher/just-eat-express#readme",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/express-jwt": "^6.0.2",
+    "@types/jsonwebtoken": "^8.5.6",
+    "@types/morgan": "^1.9.3",
+    "concurrently": "^6.2.1",
+    "nodemon": "^2.0.12",
+    "prisma": "^3.5.0",
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.5.0",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.7.4",
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-jwt": "^6.1.0",
+    "express-validator": "^6.13.0",
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "rimraf": "^3.0.2"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}
