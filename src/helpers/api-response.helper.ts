@@ -1,5 +1,4 @@
 import { Response } from 'express';
-import { ValidationError } from 'express-validator';
 
 export const successResponseWithData = <T extends unknown>(
   res: Response,

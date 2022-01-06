@@ -1,7 +1,7 @@
 {
-  "name": "just-eat-express",
+  "name": "express-prisma-starter",
   "version": "1.0.0",
-  "description": "BE for just-eat project",
+  "description": "Express prisma starter",
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && tsc",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whisher/just-eat-express.git"
+    "url": "git+https://github.com/whisher/express-prisma-starter.git"
   },
   "author": "whisher",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/whisher/just-eat-express/issues"
+    "url": "https://github.com/whisher/express-prisma-starter/issues"
   },
-  "homepage": "https://github.com/whisher/just-eat-express#readme",
+  "homepage": "https://github.com/whisher/express-prisma-starter#readme",
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/cookie-parser": "^1.4.2",
@@ -49,7 +49,8 @@
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "yup": "^0.32.11"
   },
   "engines": {
     "node": "16.x"

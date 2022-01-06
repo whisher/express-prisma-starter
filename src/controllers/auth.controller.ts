@@ -14,6 +14,10 @@ import {
   validationErrorWithData,
 } from '../helpers/api-response.helper';
 
+export interface TypedRequestBody<T> extends Express.Request {
+  body: T;
+}
+/*
 export interface TypedRequestBody<T> extends Request {
   body: T;
 }
@@ -27,7 +31,7 @@ export interface AuthLoginResponse extends Response {
   token: string;
   expirationEpochSeconds: number;
 }
-
+*/
 const MSG_INVALID_CREDENTIALS =
   'You have entered an invalid username or password';
 
