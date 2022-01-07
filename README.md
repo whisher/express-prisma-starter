@@ -1,9 +1,17 @@
 ## Express Prisma Starter
 
-## npm i
+by [@ilwebdifabio](https://twitter.com/ilwebdifabio)
 
-## Create a file /prisma/dev.db
+# Getting started
 
-## Run npx prisma migrate dev
+```git clone https://github.com/whisher/express-prisma-starter.git new-project
+cd new-project
+npm install
+npm start
+```
 
-## Rename .env-copy in .env
+- In development for a quick go create a file /prisma/dev.db and
+  run `npx prisma migrate dev`
+- For production pick your target database.
+- Take a look at [prisma documentation](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-typescript-postgres)
+- Rename .env-copy in .env

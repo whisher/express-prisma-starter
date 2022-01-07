@@ -10,9 +10,8 @@ export const validateBody =
       return next();
     } catch (error) {
       if (error instanceof ValidationError) {
-        return res
-          .status(422)
-          .json({ type: error.name, message: error.message });
+        console.log('ERROR', error);
+        return res.status(422).json({ message: error.message });
       }
       return res.status(500).json({ message: 'Internal Server Error' });
     }

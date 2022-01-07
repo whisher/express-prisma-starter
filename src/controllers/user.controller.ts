@@ -1,4 +1,4 @@
-import { RequestHandler } from 'express';
+import { Request, RequestHandler, Response } from 'express';
 import prisma from '../helpers/prisma';
 
 import {
@@ -6,7 +6,7 @@ import {
   successResponseWithData,
 } from '../helpers/api-response.helper';
 
-export const account: RequestHandler = async (req, res) => {
+export const account: RequestHandler = async (req: Request, res: Response) => {
   try {
     const auth = req.user;
     if (auth && 'email' in auth) {
@@ -26,7 +26,7 @@ export const account: RequestHandler = async (req, res) => {
       }
     }
 
-    return successResponseWithData<Express.User | undefined>(res, auth);
+    return errorResponse(res);
   } catch (err) {
     return errorResponse(res);
   }

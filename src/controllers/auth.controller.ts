@@ -14,28 +14,10 @@ import {
   validationErrorWithData,
 } from '../helpers/api-response.helper';
 
-export interface TypedRequestBody<T> extends Express.Request {
-  body: T;
-}
-/*
-export interface TypedRequestBody<T> extends Request {
-  body: T;
-}
-
-type AuthLoginRequest = TypedRequestBody<{
-  email: string;
-  password: string;
-}>;
-
-export interface AuthLoginResponse extends Response {
-  token: string;
-  expirationEpochSeconds: number;
-}
-*/
 const MSG_INVALID_CREDENTIALS =
   'You have entered an invalid username or password';
 
-export const login: RequestHandler = async (req, res) => {
+export const login: RequestHandler = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
     const user = await prisma.user.findFirst({
@@ -72,7 +54,7 @@ export const login: RequestHandler = async (req, res) => {
   }
 };
 
-export const signIn: RequestHandler = async (req, res) => {
+export const signIn: RequestHandler = async (req: Request, res: Response) => {
   try {
     const user = req.body;
     user.password = await hash(user.password, 10);

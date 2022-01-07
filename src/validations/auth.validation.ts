@@ -1,10 +1,13 @@
-import { object, string } from 'yup';
+import { boolean, object, string } from 'yup';
 
-import { validateBody } from '../middlewares/validate';
+export const authLoginValidation = object({
+  email: string().required().email(),
+  password: string().required().max(20),
+});
 
-export const authLoginValidation = validateBody(
-  object({
-    email: string().required().email(),
-    password: string().required(),
-  })
-);
+export const authSignInValidation = object({
+  acceptPrivacyPolicy: boolean().isTrue(),
+  email: string().required().email(),
+  password: string().required().max(20),
+  username: string().required().max(20),
+});
