@@ -34,6 +34,7 @@ export const login: RequestHandler = async (req: Request, res: Response) => {
     }
     const userData = {
       email: user.email,
+      role: user.role,
     };
     const jwtPayload = userData;
     const jwtData = {

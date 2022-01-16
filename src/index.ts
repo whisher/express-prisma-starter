@@ -13,7 +13,7 @@ import morgan from 'morgan';
 import { join } from 'path';
 
 // Cors
-const baseUrlApi = 'http://localhost:4200';
+const baseUrlApi = process.env.URL_CORS;
 
 const corsOptions: cors.CorsOptions = {
   allowedHeaders: ['Origin', 'Content-Type', 'Accept', 'Authorization'],
@@ -22,6 +22,7 @@ const corsOptions: cors.CorsOptions = {
   origin: baseUrlApi,
   preflightContinue: false,
 };
+
 // Boot express
 const app: Application = express();
 const port = 5000;
@@ -33,7 +34,6 @@ app.use(cors(corsOptions));
 
 // heroku to get https protocol
 app.enable('trust proxy');
-app.use(express.static(join(__dirname, 'assets')));
 
 // Show routes called in console during development
 if (process.env.NODE_ENV === 'development') {
