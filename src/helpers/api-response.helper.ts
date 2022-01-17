@@ -11,8 +11,8 @@ export const errorResponse = (res: Response) => {
   return res.status(500).json({ message: 'Internal Server Error' });
 };
 
-export const notFoundResponse = (res: Response, message: string) => {
-  return res.status(404).json({ message });
+export const notFoundResponse = (res: Response) => {
+  return res.status(404).json({ message: 'Not Found' });
 };
 
 export const validationErrorWithData = (res: Response, message: string) => {

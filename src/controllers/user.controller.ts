@@ -59,29 +59,41 @@ export const create: RequestHandler = async (req: Request, res: Response) => {
   }
 };
 
-export const users: RequestHandler = async (req: Request, res: Response) => {
+export const update: RequestHandler = async (req: Request, res: Response) => {
   try {
-    const auth = req.user;
-    if (auth && 'role' in auth) {
-      const { role } = auth;
-      if (role === 'admin') {
-        const users = await prisma.user.findMany({
-          orderBy: {
-            createdAt: 'desc',
-          },
-          select: {
-            id: true,
-            createdAt: true,
-            updatedAt: true,
-            email: true,
-            role: true,
-            username: true,
-          },
-        });
-        return successResponseWithData<UserDto[]>(res, users);
+    const user = req.body;
+    const { email, id, username } = user;
+    const updatedUser = await prisma.user.update({
+      where: { id },
+      data: { email, username },
+    });
+    return successResponseWithData<UserDto>(res, updatedUser);
+  } catch (error) {
+    if (error instanceof PrismaOrm.PrismaClientKnownRequestError) {
+      if (error.code === 'P2002') {
+        return validationErrorWithData(res, 'Account already exists.');
       }
     }
     return errorResponse(res);
+  }
+};
+
+export const users: RequestHandler = async (req: Request, res: Response) => {
+  try {
+    const users = await prisma.user.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+      select: {
+        id: true,
+        createdAt: true,
+        updatedAt: true,
+        email: true,
+        role: true,
+        username: true,
+      },
+    });
+    return successResponseWithData<UserDto[]>(res, users);
   } catch (err) {
     return errorResponse(res);
   }

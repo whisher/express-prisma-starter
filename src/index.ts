@@ -61,7 +61,7 @@ app.use('/api/', apiRouter);
 
 // throw 404 if URL not found
 app.all('*', (req, res) => {
-  return notFoundResponse(res, 'Page not found');
+  return notFoundResponse(res);
 });
 
 // throw 401 for unauthorized user
