@@ -1,11 +1,15 @@
-# Express Prisma Starter
+# Typescript Express Prisma Starter
 
 by [@ilwebdifabio](https://twitter.com/ilwebdifabio)
 
+x[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/whisher/express-prisma-starter/blob/main/LICENSE)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
 ## Getting started
 
-```git clone https://github.com/whisher/express-prisma-starter.git new-project
-cd new-project
+```bash
+git clone https://github.com/whisher/express-prisma-starter.git server-project
+cd server-project
 npm install
 npm start
 ```
@@ -14,3 +18,9 @@ npm start
   run `npx prisma migrate dev`
 - For production, pick your target database up and take a look at [prisma documentation](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-typescript-postgres)
 - Rename .env-sample in .env
+
+## Goals
+
+The main goal of this repository is to provide a
+easy full configurable backend for front end developers.
+Like [angular-ngrx-material-starter](https://github.com/whisher/angular-ngrx-material-starter))

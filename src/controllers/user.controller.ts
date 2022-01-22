@@ -59,6 +59,18 @@ export const create: RequestHandler = async (req: Request, res: Response) => {
   }
 };
 
+export const remove: RequestHandler = async (req: Request, res: Response) => {
+  try {
+    const user = req.body;
+    const { id } = user;
+    const deletedUser = await prisma.user.delete({
+      where: { id },
+    });
+    return successResponseWithData<UserDto>(res, deletedUser);
+  } catch (error) {
+    return errorResponse(res);
+  }
+};
 export const update: RequestHandler = async (req: Request, res: Response) => {
   try {
     const user = req.body;
