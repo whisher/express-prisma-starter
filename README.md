@@ -2,7 +2,7 @@
 
 by [@ilwebdifabio](https://twitter.com/ilwebdifabio)
 
-x[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/whisher/express-prisma-starter/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/whisher/express-prisma-starter/blob/main/LICENSE)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 ## Getting started
@@ -23,4 +23,4 @@ npm start
 
 The main goal of this repository is to provide a
 easy full configurable backend for front end developers.
-Like [angular-ngrx-material-starter](https://github.com/whisher/angular-ngrx-material-starter))
+Take a look at [angular-ngrx-material-starter](https://github.com/whisher/angular-ngrx-material-starter)
