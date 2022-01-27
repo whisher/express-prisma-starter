@@ -27,7 +27,7 @@ model Todo {
   userId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
-  isDone    Boolean
+  isDone    Boolean  @default(false)
   name      String
   user      User     @relation(fields: [userId], references: [id])
 }

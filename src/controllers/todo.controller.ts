@@ -28,7 +28,7 @@ const selected = {
 export const add: RequestHandler = async (req: Request, res: Response) => {
   try {
     const todo = req.body;
-    todo.userId = 'abcde';
+    todo.userId = 'ckyx7ltmf0004h4nl212u38gd';
     const newTodo = await prisma.todo.create({
       data: todo,
       select: selected,
@@ -56,13 +56,13 @@ export const getAll: RequestHandler = async (req: Request, res: Response) => {
 export const remove: RequestHandler = async (req: Request, res: Response) => {
   try {
     const id = String(req.params.id);
-    const deletedUser = await prisma.user.delete({
+    const deletedTodo = await prisma.todo.delete({
       where: { id },
       select: {
         id: true,
       },
     });
-    return successResponseWithData<{ id: string }>(res, deletedUser);
+    return successResponseWithData<{ id: string }>(res, deletedTodo);
   } catch (error) {
     return errorResponse(res);
   }
