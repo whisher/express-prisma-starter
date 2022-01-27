@@ -10,6 +10,17 @@ CREATE TABLE "User" (
     "username" TEXT NOT NULL
 );
 
+-- CreateTable
+CREATE TABLE "Todo" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "userId" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "isDone" BOOLEAN NOT NULL,
+    "name" TEXT NOT NULL,
+    CONSTRAINT "Todo_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 

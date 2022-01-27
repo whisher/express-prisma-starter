@@ -11,14 +11,23 @@ generator client {
 }
 
 model User {
-  id        String          @id @default(cuid())
-  createdAt DateTime        @default(now())
-  updatedAt DateTime        @default(now()) @updatedAt
+  id                  String   @id @default(cuid())
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @default(now()) @updatedAt
   acceptPrivacyPolicy Boolean
-  email     String          @unique
-  password  String
-  role      String          @default("user")
-  username     String       @unique
+  email               String   @unique
+  password            String
+  role                String   @default("user")
+  username            String   @unique
+  todos               Todo[]
 }
 
-
+model Todo {
+  id        String   @id @default(cuid())
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  isDone    Boolean
+  name      String
+  user      User     @relation(fields: [userId], references: [id])
+}
