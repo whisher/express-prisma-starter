@@ -23,7 +23,7 @@ export const account: RequestHandler = async (req: Request, res: Response) => {
     const auth = req.user;
     if (auth && 'email' in auth) {
       const { email } = auth;
-      const user = await prisma.user.findFirst({
+      const user = await prisma.user.findUnique({
         where: {
           email: email,
         },
@@ -33,7 +33,6 @@ export const account: RequestHandler = async (req: Request, res: Response) => {
         return successResponseWithData<UserDto>(res, user);
       }
     }
-
     return errorResponse(res);
   } catch (err) {
     return errorResponse(res);
@@ -71,6 +70,7 @@ export const remove: RequestHandler = async (req: Request, res: Response) => {
     return errorResponse(res);
   }
 };
+
 export const update: RequestHandler = async (req: Request, res: Response) => {
   try {
     const user = req.body;

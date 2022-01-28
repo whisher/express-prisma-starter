@@ -27,13 +27,26 @@ const selected = {
 
 export const add: RequestHandler = async (req: Request, res: Response) => {
   try {
-    const todo = req.body;
-    todo.userId = 'ckyx7ltmf0004h4nl212u38gd';
-    const newTodo = await prisma.todo.create({
-      data: todo,
-      select: selected,
-    });
-    return successResponseWithData<TodoDto>(res, newTodo);
+    const auth = req.user;
+    if (auth && 'email' in auth) {
+      const { email } = auth;
+      const user = await prisma.user.findUnique({
+        where: {
+          email: email,
+        },
+        select: { id: true },
+      });
+      if (user) {
+        const todo = req.body;
+        todo.userId = user.id;
+        const newTodo = await prisma.todo.create({
+          data: todo,
+          select: selected,
+        });
+        return successResponseWithData<TodoDto>(res, newTodo);
+      }
+    }
+    return errorResponse(res);
   } catch (error) {
     return errorResponse(res);
   }

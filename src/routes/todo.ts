@@ -16,9 +16,9 @@ import {
 
 const router = Router();
 
-router.post('', validateBody(todoCreateValidation), add);
-router.get('', getAll);
-router.delete('/:id', remove);
-router.put('/:id', validateBody(todoUpdateValidation), update);
+router.post('', auth, validateBody(todoCreateValidation), add);
+router.get('', auth, getAll);
+router.delete('/:id', auth, remove);
+router.put('/:id', auth, validateBody(todoUpdateValidation), update);
 
 export { router };
