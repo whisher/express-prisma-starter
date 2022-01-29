@@ -23,7 +23,7 @@ export const account: RequestHandler = async (req: Request, res: Response) => {
     const auth = req.user;
     if (auth && 'email' in auth) {
       const { email } = auth;
-      const user = await prisma.user.findFirst({
+      const user = await prisma.user.findUnique({
         where: {
           email: email,
         },
