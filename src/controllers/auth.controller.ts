@@ -20,7 +20,7 @@ const MSG_INVALID_CREDENTIALS =
 export const login: RequestHandler = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
-    const user = await prisma.user.findFirst({
+    const user = await prisma.user.findUnique({
       where: {
         email,
       },
