@@ -3,20 +3,12 @@ import { Request, RequestHandler, Response } from 'express';
 import { hash } from 'bcrypt';
 import prisma from '../helpers/prisma';
 
+import { UserDto } from '../models';
 import {
   errorResponse,
   successResponseWithData,
   validationErrorWithData,
 } from '../helpers/api-response.helper';
-
-export interface UserDto {
-  id: string;
-  email: string;
-  role: string;
-  username: string;
-  createdAt?: Date;
-  updatedAt?: Date;
-}
 
 export const account: RequestHandler = async (req: Request, res: Response) => {
   try {

@@ -7,6 +7,8 @@ import { decode, sign } from 'jsonwebtoken';
 
 import prisma from '../helpers/prisma';
 
+import { AuthLoginResponseDto } from '../models';
+
 import {
   errorResponse,
   successResponseWithData,
@@ -46,10 +48,10 @@ export const login: RequestHandler = async (req: Request, res: Response) => {
       exp: number;
     };
     const expirationEpochSeconds = exp * 1000;
-    return successResponseWithData<{
-      token: string;
-      expirationEpochSeconds: number;
-    }>(res, { token, expirationEpochSeconds });
+    return successResponseWithData<AuthLoginResponseDto>(res, {
+      token,
+      expirationEpochSeconds,
+    });
   } catch (err) {
     return errorResponse(res);
   }
