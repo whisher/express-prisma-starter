@@ -9,9 +9,6 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-// Core
-import { join } from 'path';
-
 // Cors
 const baseUrlApi = process.env.URL_CORS;
 

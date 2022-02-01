@@ -23,3 +23,4 @@ npm start
 
 The main goal of this repository is to provide an
 easy full configurable backend for front end developers.
+Take a look at [angular-ngrx-material-starter](https://github.com/whisher/angular-ngrx-material-starter)
